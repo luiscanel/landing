@@ -1,0 +1,13 @@
+export { default as Navbar } from "./Navbar";
+export { default as Hero } from "./Hero";
+export { default as Ticker } from "./Ticker";
+export { default as Services } from "./Services";
+export { default as Guarantees } from "./Guarantees";
+export { default as Plans } from "./Plans";
+export { default as Process } from "./Process";
+export { default as Industries } from "./Industries";
+export { default as Tech } from "./Tech";
+export { default as CTA } from "./CTA";
+export { default as Footer } from "./Footer";
+export { default as WhatsAppFloat } from "./WhatsAppFloat";
+export { default as RevealWrapper } from "./RevealWrapper";

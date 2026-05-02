@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teknao — Soporte TI para PYMES en Guatemala</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@400;500;700;800;900&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #06090F;
+  --ink2: #0D1422;
+  --ink3: #111B2E;
+  --surface: #162038;
+  --surface2: #1C2B47;
+  --azure: #2563EB;
+  --azure-light: #3B82F6;
+  --azure-bright: #60A5FA;
+  --sky: #0EA5E9;
+  --sky-pale: #BAE6FD;
+  --white: #F8FAFF;
+  --muted: #8BA3C7;
+  --dim: #4A6585;
+  --line: rgba(59,130,246,0.12);
+  --line2: rgba(255,255,255,0.06);
+  --head: 'Cabinet Grotesk', sans-serif;
+  --body: 'Instrument Sans', sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--white);font-family:var(--body);font-size:16px;line-height:1.65;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  height:64px;display:flex;align-items:center;justify-content:space-between;
+  padding:0 6%;
+  background:rgba(6,9,15,0.75);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--line2);
+}
+.logo{font-family:var(--head);font-weight:900;font-size:20px;letter-spacing:-0.5px;display:flex;align-items:center;gap:8px}
+.logo-mark{width:28px;height:28px;border-radius:7px;background:linear-gradient(135deg,var(--azure) 0%,var(--sky) 100%);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;color:#fff}
+.nav-right{display:flex;align-items:center;gap:32px}
+.nav-right a{font-size:13.5px;font-weight:500;color:var(--muted);transition:color 0.2s}
+.nav-right a:hover{color:var(--white)}
+.nav-btn{background:var(--azure);color:#fff !important;font-family:var(--body);font-size:13.5px;font-weight:600;padding:9px 20px;border-radius:8px;border:none;cursor:pointer;transition:background 0.2s,transform 0.15s}
+.nav-btn:hover{background:var(--azure-light);transform:translateY(-1px)}
+
+/* HERO */
+.hero{
+  min-height:100vh;padding:100px 6% 80px;
+  display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;
+  position:relative;overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;z-index:0;
+  background:radial-gradient(ellipse 60% 80% at 75% 50%,rgba(37,99,235,0.12) 0%,transparent 70%),radial-gradient(ellipse 40% 40% at 20% 80%,rgba(14,165,233,0.06) 0%,transparent 60%);
+}
+.hero-lines{
+  position:absolute;inset:0;z-index:0;
+  background-image:linear-gradient(rgba(59,130,246,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,0.05) 1px,transparent 1px);
+  background-size:80px 80px;
+  mask-image:radial-gradient(ellipse 70% 70% at 70% 50%,black 30%,transparent 100%);
+}
+.hero-left{position:relative;z-index:1;animation:fadeUp 0.7s ease both}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;margin-bottom:24px}
+.eyebrow-line{width:32px;height:2px;background:var(--azure-light);border-radius:2px}
+.eyebrow-text{font-size:12px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--azure-bright)}
+h1{font-family:var(--head);font-size:clamp(44px,5.5vw,78px);font-weight:900;line-height:0.97;letter-spacing:-2.5px;margin-bottom:28px}
+h1 .accent{display:block;background:linear-gradient(100deg,var(--azure-light) 0%,var(--sky-pale) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-desc{font-size:17px;color:var(--muted);font-weight:400;max-width:460px;line-height:1.7;margin-bottom:40px}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:52px}
+.btn-blue{display:inline-flex;align-items:center;gap:9px;background:var(--azure);color:#fff;font-family:var(--body);font-size:15px;font-weight:600;padding:14px 26px;border-radius:10px;border:none;cursor:pointer;transition:background 0.2s,transform 0.15s,box-shadow 0.2s}
+.btn-blue:hover{background:var(--azure-light);transform:translateY(-2px);box-shadow:0 10px 30px rgba(37,99,235,0.35)}
+.btn-outline{display:inline-flex;align-items:center;gap:9px;background:transparent;color:var(--white);font-family:var(--body);font-size:15px;font-weight:500;padding:14px 26px;border-radius:10px;border:1px solid rgba(255,255,255,0.15);cursor:pointer;transition:all 0.2s}
+.btn-outline:hover{background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.28)}
+.btn-wa{display:inline-flex;align-items:center;gap:9px;background:#1FAD52;color:#fff;font-family:var(--body);font-size:15px;font-weight:600;padding:14px 26px;border-radius:10px;border:none;cursor:pointer;transition:background 0.2s,transform 0.15s}
+.btn-wa:hover{background:#17944A;transform:translateY(-2px)}
+.hero-kpis{display:flex;border:1px solid var(--line2);border-radius:14px;overflow:hidden;background:var(--ink3)}
+.kpi{padding:18px 22px;flex:1;border-right:1px solid var(--line2)}
+.kpi:last-child{border-right:none}
+.kpi-val{font-family:var(--head);font-size:26px;font-weight:900;color:var(--azure-bright);line-height:1;margin-bottom:4px}
+.kpi-lbl{font-size:11px;color:var(--dim);font-weight:500}
+.hero-right{position:relative;z-index:1;animation:fadeUp 0.7s 0.15s ease both}
+.hero-card{background:var(--ink3);border:1px solid var(--line2);border-radius:20px;padding:32px;position:relative;overflow:hidden}
+.hero-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--azure),var(--sky),var(--azure-bright))}
+.card-label{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--azure-bright);margin-bottom:16px}
+.alert-rows{display:flex;flex-direction:column;gap:10px;margin-bottom:24px}
+.alert-row{display:flex;align-items:center;gap:12px;background:var(--surface);border:1px solid var(--line2);border-radius:10px;padding:12px 14px;font-size:13.5px}
+.alert-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.dot-green{background:#22C55E;box-shadow:0 0 6px #22C55E}
+.dot-yellow{background:#EAB308;box-shadow:0 0 6px #EAB308}
+.dot-blue{background:var(--azure-light);box-shadow:0 0 6px var(--azure-light)}
+.alert-text{flex:1;color:var(--muted)}
+.alert-time{font-size:11px;color:var(--dim)}
+.card-bottom{background:rgba(37,99,235,0.1);border:1px solid rgba(37,99,235,0.2);border-radius:10px;padding:14px 16px;display:flex;align-items:center;justify-content:space-between}
+.card-bottom-text{font-size:13px;color:var(--muted)}
+.card-bottom-badge{background:var(--azure);color:#fff;font-size:11px;font-weight:700;padding:4px 10px;border-radius:6px}
+
+/* TICKER */
+.ticker{overflow:hidden;border-top:1px solid var(--line2);border-bottom:1px solid var(--line2);background:var(--ink2);padding:14px 0}
+.ticker-track{display:flex;gap:56px;animation:scroll 30s linear infinite;white-space:nowrap}
+.ticker-item{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--dim)}
+.ticker-sep{width:3px;height:3px;border-radius:50%;background:var(--azure);opacity:0.5}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* SECTIONS */
+section{padding:110px 6%}
+.s-tag{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--azure-bright);margin-bottom:14px}
+.s-tag-bar{width:20px;height:2px;background:var(--azure-bright);border-radius:2px}
+.s-title{font-family:var(--head);font-size:clamp(32px,4vw,54px);font-weight:900;letter-spacing:-1.5px;line-height:1.05}
+.s-sub{font-size:17px;color:var(--muted);margin-top:14px;max-width:520px;font-weight:400;line-height:1.7}
+.center{text-align:center}.center .s-sub{margin-left:auto;margin-right:auto}
+
+/* SERVICES */
+.services{background:var(--ink2)}
+.srv-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;margin-top:64px;border:1px solid var(--line2);border-radius:18px;overflow:hidden;background:var(--line2)}
+.srv{background:var(--ink2);padding:40px 36px;transition:background 0.25s;position:relative}
+.srv:hover{background:var(--ink3)}
+.srv-num{font-family:var(--head);font-size:13px;font-weight:700;color:var(--dim);letter-spacing:1px;margin-bottom:20px}
+.srv-icon-wrap{width:52px;height:52px;border-radius:14px;background:rgba(37,99,235,0.1);border:1px solid rgba(37,99,235,0.2);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:20px}
+.srv-name{font-family:var(--head);font-size:22px;font-weight:800;margin-bottom:10px;letter-spacing:-0.5px}
+.srv-body{font-size:14.5px;color:var(--muted);line-height:1.65;margin-bottom:18px}
+.srv-tags{display:flex;flex-wrap:wrap;gap:8px}
+.srv-tag{background:rgba(37,99,235,0.08);border:1px solid rgba(37,99,235,0.15);border-radius:100px;padding:4px 12px;font-size:12px;color:var(--muted);font-weight:500}
+.srv-arrow{position:absolute;top:36px;right:32px;width:32px;height:32px;border-radius:50%;background:var(--surface);display:flex;align-items:center;justify-content:center;font-size:14px;color:var(--dim);transition:all 0.2s}
+.srv:hover .srv-arrow{background:var(--azure);color:#fff}
+
+/* GUARANTEES */
+.guarantees{background:var(--ink);position:relative;overflow:hidden}
+.guarantees::before{content:'';position:absolute;right:-200px;top:-200px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(37,99,235,0.08) 0%,transparent 70%);pointer-events:none}
+.guar-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.guar-right{display:flex;flex-direction:column;gap:24px}
+.guar-item{display:flex;gap:20px;align-items:flex-start;padding:28px;border:1px solid var(--line2);border-radius:16px;background:var(--ink3);transition:border-color 0.25s,transform 0.25s}
+.guar-item:hover{border-color:rgba(37,99,235,0.3);transform:translateX(4px)}
+.guar-icon-box{width:48px;height:48px;flex-shrink:0;border-radius:12px;background:rgba(37,99,235,0.12);border:1px solid rgba(37,99,235,0.2);display:flex;align-items:center;justify-content:center;font-size:20px}
+.guar-item-title{font-family:var(--head);font-size:17px;font-weight:800;margin-bottom:5px}
+.guar-item-desc{font-size:13.5px;color:var(--muted);line-height:1.6}
+.big-stat{background:var(--ink3);border:1px solid var(--line2);border-radius:20px;padding:48px;text-align:center;position:relative;overflow:hidden}
+.big-stat::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(37,99,235,0.06) 0%,transparent 60%)}
+.big-stat>*{position:relative;z-index:1}
+.big-num{font-family:var(--head);font-size:88px;font-weight:900;line-height:1;letter-spacing:-4px;background:linear-gradient(135deg,var(--white) 0%,var(--azure-bright) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.big-unit{font-size:36px;letter-spacing:-2px}
+.big-label{font-family:var(--head);font-size:18px;font-weight:700;margin-top:10px}
+.big-desc{font-size:14px;color:var(--muted);margin-top:8px;max-width:240px;margin-left:auto;margin-right:auto}
+.big-stats-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}
+.mini-stat{background:var(--surface);border:1px solid var(--line2);border-radius:12px;padding:18px;text-align:center}
+.mini-val{font-family:var(--head);font-size:24px;font-weight:900;color:var(--azure-bright)}
+.mini-lbl{font-size:12px;color:var(--dim);margin-top:3px}
+
+/* PLANS */
+.plans{background:var(--ink2)}
+.plans-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:64px;align-items:start}
+.plan{background:var(--ink3);border:1px solid var(--line2);border-radius:20px;padding:36px 28px;transition:border-color 0.2s;position:relative}
+.plan.star{background:var(--surface);border:1.5px solid rgba(37,99,235,0.5)}
+.plan-ribbon{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--azure);color:#fff;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:5px 16px;border-radius:100px;white-space:nowrap}
+.plan-tier{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--azure-bright);margin-bottom:6px}
+.plan-name{font-family:var(--head);font-size:24px;font-weight:900;margin-bottom:8px;letter-spacing:-0.5px}
+.plan-pitch{font-size:13.5px;color:var(--muted);margin-bottom:28px;line-height:1.6}
+.plan-divider{height:1px;background:var(--line2);margin-bottom:24px}
+.plan-feats{list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:32px}
+.plan-feats li{display:flex;align-items:flex-start;gap:10px;font-size:13.5px;color:var(--muted)}
+.feat-check{width:19px;height:19px;border-radius:50%;flex-shrink:0;margin-top:1px;background:rgba(37,99,235,0.15);display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--azure-bright)}
+.plan.star .feat-check{background:rgba(37,99,235,0.25)}
+.plan-btn{display:block;width:100%;padding:13px;border-radius:10px;text-align:center;font-family:var(--body);font-size:14.5px;font-weight:600;cursor:pointer;transition:all 0.2s;border:1px solid rgba(37,99,235,0.3);color:var(--azure-bright);background:transparent}
+.plan-btn:hover{background:rgba(37,99,235,0.1)}
+.plan.star .plan-btn{background:var(--azure);border-color:var(--azure);color:#fff}
+.plan.star .plan-btn:hover{background:var(--azure-light)}
+
+/* PROCESS */
+.process{background:var(--ink)}
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:72px;position:relative}
+.process-grid::after{content:'';position:absolute;top:28px;left:12.5%;right:12.5%;height:1px;background:linear-gradient(90deg,transparent,var(--line2) 20%,var(--line2) 80%,transparent);z-index:0}
+.proc{display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 16px;position:relative;z-index:1}
+.proc-circle{width:56px;height:56px;border-radius:50%;background:var(--ink3);border:1px solid var(--line2);display:flex;align-items:center;justify-content:center;font-family:var(--head);font-size:16px;font-weight:900;color:var(--azure-bright);margin-bottom:22px}
+.proc:first-child .proc-circle{border-color:rgba(37,99,235,0.5);background:rgba(37,99,235,0.1);box-shadow:0 0 0 6px rgba(37,99,235,0.06)}
+.proc-title{font-family:var(--head);font-size:17px;font-weight:800;margin-bottom:8px}
+.proc-desc{font-size:13px;color:var(--muted);line-height:1.6}
+
+/* INDUSTRIES */
+.industries{background:var(--ink2)}
+.ind-wrap{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;margin-top:48px}
+.ind-card{background:var(--ink3);border:1px solid var(--line2);border-radius:14px;padding:22px 16px;text-align:center;transition:all 0.2s;cursor:default}
+.ind-card:hover{border-color:rgba(37,99,235,0.3);background:var(--surface)}
+.ind-em{font-size:26px;margin-bottom:10px}
+.ind-name{font-size:13px;font-weight:600;color:var(--muted)}
+
+/* TECH */
+.tech{background:var(--ink)}
+.tech-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:40px}
+.tech-chip{background:var(--ink3);border:1px solid var(--line2);border-radius:8px;padding:9px 18px;font-size:13px;font-weight:600;color:var(--dim);letter-spacing:0.3px;transition:all 0.2s}
+.tech-chip:hover{color:var(--muted);border-color:rgba(37,99,235,0.25)}
+
+/* CTA BLOCK */
+.cta-block{background:linear-gradient(135deg,var(--ink3) 0%,var(--surface) 100%);border-top:1px solid var(--line2);border-bottom:1px solid var(--line2);padding:100px 6%;text-align:center;position:relative;overflow:hidden}
+.cta-block::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 60% at 50% 100%,rgba(37,99,235,0.12) 0%,transparent 70%)}
+.cta-block>*{position:relative;z-index:1}
+.cta-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(37,99,235,0.1);border:1px solid rgba(37,99,235,0.2);border-radius:100px;padding:6px 16px;font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--azure-bright);margin-bottom:24px}
+.cta-title{font-family:var(--head);font-size:clamp(30px,4.5vw,58px);font-weight:900;letter-spacing:-2px;line-height:1.05;margin-bottom:16px}
+.cta-sub{font-size:17px;color:var(--muted);max-width:480px;margin:0 auto 40px;line-height:1.7}
+.cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.cta-note{font-size:13px;color:var(--dim);margin-top:20px}
+
+/* FOOTER */
+footer{background:var(--ink2);border-top:1px solid var(--line2);padding:72px 6% 36px}
+.footer-top{display:grid;grid-template-columns:2.2fr 1fr 1fr 1.6fr;gap:48px;padding-bottom:56px;border-bottom:1px solid var(--line2)}
+.footer-brand p{font-size:13.5px;color:var(--dim);line-height:1.75;max-width:260px;margin-top:14px}
+.f-col-title{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--dim);margin-bottom:18px}
+.f-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.f-col ul li a{font-size:14px;color:var(--muted);transition:color 0.2s}
+.f-col ul li a:hover{color:var(--white)}
+.f-contact{display:flex;flex-direction:column;gap:12px}
+.f-contact-row{display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--muted)}
+.f-icon{width:32px;height:32px;border-radius:8px;background:rgba(37,99,235,0.1);border:1px solid rgba(37,99,235,0.15);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding-top:28px;font-size:13px;color:var(--dim)}
+
+/* WA FLOAT */
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:999;width:54px;height:54px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,0.35);cursor:pointer;transition:transform 0.2s,box-shadow 0.2s}
+.wa-float:hover{transform:scale(1.1);box-shadow:0 8px 28px rgba(37,211,102,0.45)}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.65s ease,transform 0.65s ease}
+.reveal.on{opacity:1;transform:translateY(0)}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .hero-right{display:none}
+  .guar-layout{grid-template-columns:1fr}
+  .plans-grid{grid-template-columns:1fr}
+  .process-grid{grid-template-columns:1fr 1fr}
+  .process-grid::after{display:none}
+  .footer-top{grid-template-columns:1fr 1fr}
+  .srv-grid{grid-template-columns:1fr}
+  nav .nav-right>a:not(.nav-btn){display:none}
+}
+@media(max-width:600px){
+  section{padding:80px 5%}
+  .hero{padding:100px 5% 60px}
+  .hero-kpis{flex-wrap:wrap}
+  .footer-top{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">
+    <div class="logo-mark">T</div>TEKNAO
+  </div>
+  <div class="nav-right">
+    <a href="#servicios">Servicios</a>
+    <a href="#planes">Planes</a>
+    <a href="#proceso">Proceso</a>
+    <a href="tel:+50252836343">+502 5283-6343</a>
+    <a href="https://wa.me/50252836343" class="nav-btn">Contáctanos</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-lines"></div>
+  <div class="hero-left">
+    <div class="eyebrow">
+      <div class="eyebrow-line"></div>
+      <span class="eyebrow-text">Soporte TI para PYMES · Guatemala</span>
+    </div>
+    <h1>Tu negocio<br>no puede<br><span class="accent">pararse.</span></h1>
+    <p class="hero-desc">Soporte TI profesional con respuesta garantizada en menos de 2 horas. Servidores, redes y ciberseguridad que funcionan 24/7 para que tú te concentres en crecer.</p>
+    <div class="hero-ctas">
+      <a href="https://wa.me/50252836343" class="btn-wa">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+      </a>
+      <a href="tel:+50252836343" class="btn-outline">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+        Llamar ahora
+      </a>
+      <a href="#planes" class="btn-outline">Ver planes →</a>
+    </div>
+    <div class="hero-kpis">
+      <div class="kpi"><div class="kpi-val">10+</div><div class="kpi-lbl">Años en Guatemala</div></div>
+      <div class="kpi"><div class="kpi-val">&lt;2h</div><div class="kpi-lbl">Respuesta SLA</div></div>
+      <div class="kpi"><div class="kpi-val">99.9%</div><div class="kpi-lbl">Uptime garantizado</div></div>
+      <div class="kpi"><div class="kpi-val">40%</div><div class="kpi-lbl">Ahorro vs contratar</div></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-card">
+      <div class="card-label">Monitor de infraestructura</div>
+      <div class="alert-rows">
+        <div class="alert-row"><div class="alert-dot dot-green"></div><span class="alert-text">Servidor principal — operando normalmente</span><span class="alert-time">Ahora</span></div>
+        <div class="alert-row"><div class="alert-dot dot-blue"></div><span class="alert-text">Backup automático completado con éxito</span><span class="alert-time">14 min</span></div>
+        <div class="alert-row"><div class="alert-dot dot-green"></div><span class="alert-text">Firewall — sin amenazas detectadas</span><span class="alert-time">1 hr</span></div>
+        <div class="alert-row"><div class="alert-dot dot-yellow"></div><span class="alert-text">Actualización de seguridad en progreso</span><span class="alert-time">2 hr</span></div>
+      </div>
+      <div class="card-bottom">
+        <span class="card-bottom-text">Tiempo de respuesta promedio</span>
+        <span class="card-bottom-badge">47 minutos</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span class="ticker-item"><span class="ticker-sep"></span>HPE</span>
+    <span class="ticker-item"><span class="ticker-sep"></span>Dell</span>
+    <span class="ticker-item"><span class="ticker-sep"></span>VMware</span>
+    <span class="ticker-item"><span class="ticker-sep"></span>Proxmox</span>
+    <span class="ticker-item"><span class="ticker-sep"></span>Veeam</span>
+    <span class="ticker-item"><span class="ticker-sep"></span>Malwarebytes</span>
+    <span class="ticker-item"><span class="ticker-sep"></span>ESET</span>
+    <span class="ticker-item"><span class="ticker-sep"></span>Microsoft</span>
+    <span class="ticker-item"><span class="ticker-sep"></span>Cisco</span>
+    <span class="ticker-item"><span class="ticker-sep"></span>Ubiquiti</span>
+    <span class="ticker-item"><span class="ticker-sep"></span>HPE</span>
+    <span class="ticker-item"><span class="ticker-sep"></span>Dell</span>
+    <span class="ticker-item"><span class="ticker-sep"></span>VMware</span>
+    <span class="ticker-item"><span class="ticker-sep"></span>Proxmox</span>
+    <span class="ticker-item"><span class="ticker-sep"></span>Veeam</span>
+    <span class="ticker-item"><span class="ticker-sep"></span>Malwarebytes</span>
+    <span class="ticker-item"><span class="ticker-sep"></span>ESET</span>
+    <span class="ticker-item"><span class="ticker-sep"></span>Microsoft</span>
+    <span class="ticker-item"><span class="ticker-sep"></span>Cisco</span>
+    <span class="ticker-item"><span class="ticker-sep"></span>Ubiquiti</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="servicios">
+  <div class="reveal">
+    <div class="s-tag"><div class="s-tag-bar"></div>Lo que hacemos</div>
+    <h2 class="s-title">Soluciones TI completas<br>para tu empresa</h2>
+    <p class="s-sub">Desde infraestructura hasta ciberseguridad, cubrimos cada aspecto tecnológico para que tú te concentres en lo que importa.</p>
+  </div>
+  <div class="srv-grid reveal">
+    <div class="srv">
+      <div class="srv-num">01</div><div class="srv-arrow">→</div>
+      <div class="srv-icon-wrap">🖧</div>
+      <div class="srv-name">Infraestructura y Redes</div>
+      <p class="srv-body">Servidores, redes y cableado estructurado diseñados para la continuidad operativa de tu empresa. Sin tiempo de inactividad.</p>
+      <div class="srv-tags"><span class="srv-tag">Servidores</span><span class="srv-tag">LAN / WAN</span><span class="srv-tag">Cableado</span><span class="srv-tag">VPN</span></div>
+    </div>
+    <div class="srv">
+      <div class="srv-num">02</div><div class="srv-arrow">→</div>
+      <div class="srv-icon-wrap">🛡️</div>
+      <div class="srv-name">Ciberseguridad</div>
+      <p class="srv-body">Protección integral contra ransomware, virus y pérdida de datos. Backup automático con recuperación en minutos.</p>
+      <div class="srv-tags"><span class="srv-tag">Anti-ransomware</span><span class="srv-tag">Backup</span><span class="srv-tag">Firewall</span><span class="srv-tag">Monitoreo 24/7</span></div>
+    </div>
+    <div class="srv">
+      <div class="srv-num">03</div><div class="srv-arrow">→</div>
+      <div class="srv-icon-wrap">💻</div>
+      <div class="srv-name">Desarrollo de Software</div>
+      <p class="srv-body">Sistemas a la medida que automatizan tus procesos. Escalables, intuitivos e integrados con las herramientas que ya usas.</p>
+      <div class="srv-tags"><span class="srv-tag">Apps a la medida</span><span class="srv-tag">Automatización</span><span class="srv-tag">Integraciones</span></div>
+    </div>
+    <div class="srv">
+      <div class="srv-num">04</div><div class="srv-arrow">→</div>
+      <div class="srv-icon-wrap">🏢</div>
+      <div class="srv-name">Outsourcing IT</div>
+      <p class="srv-body">Tu departamento de TI completo sin contratar personal. Equipo dedicado que conoce tu negocio, hasta 40% más económico.</p>
+      <div class="srv-tags"><span class="srv-tag">Soporte dedicado</span><span class="srv-tag">Gestión proactiva</span><span class="srv-tag">Ahorro 40%</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- GUARANTEES -->
+<section class="guarantees" id="garantias">
+  <div class="guar-layout">
+    <div class="guar-left reveal">
+      <div class="s-tag"><div class="s-tag-bar"></div>Nuestro compromiso</div>
+      <h2 class="s-title">Garantías con<br>consecuencias reales</h2>
+      <p class="s-sub">No son promesas vacías. Si no cumplimos, tú no pagas. Así de simple.</p>
+      <div style="margin-top:36px"><a href="https://wa.me/50252836343" class="btn-blue">Hablar con un asesor</a></div>
+    </div>
+    <div class="guar-right reveal">
+      <div class="big-stat">
+        <div class="big-num">99<span class="big-unit">.9%</span></div>
+        <div class="big-label">Uptime SLA</div>
+        <p class="big-desc">Si no se cumple, devolvemos el mes completo sin preguntas.</p>
+        <div class="big-stats-row">
+          <div class="mini-stat"><div class="mini-val">&lt;2h</div><div class="mini-lbl">Respuesta o es gratis</div></div>
+          <div class="mini-stat"><div class="mini-val">$0</div><div class="mini-lbl">Costos ocultos</div></div>
+        </div>
+      </div>
+      <div class="guar-item">
+        <div class="guar-icon-box">⚡</div>
+        <div>
+          <div class="guar-item-title">Respuesta en menos de 2 horas</div>
+          <p class="guar-item-desc">Garantizamos tiempo de respuesta o el servicio es completamente gratis. Tu tiempo operativo vale.</p>
+        </div>
+      </div>
+      <div class="guar-item">
+        <div class="guar-icon-box">💰</div>
+        <div>
+          <div class="guar-item-title">Precio fijo, sin letra pequeña</div>
+          <p class="guar-item-desc">Planes claros y transparentes. Sabes exactamente lo que pagas cada mes desde el primer día.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLANS -->
+<section class="plans" id="planes">
+  <div class="reveal center">
+    <div class="s-tag" style="justify-content:center"><div class="s-tag-bar"></div>Planes de soporte</div>
+    <h2 class="s-title">Elige el nivel de<br>protección que necesitas</h2>
+    <p class="s-sub">Sin contratos de largo plazo. Sin costos ocultos. Cancela cuando quieras.</p>
+  </div>
+  <div class="plans-grid reveal">
+    <div class="plan">
+      <div class="plan-tier">Plan Básico</div>
+      <div class="plan-name">Tranquilidad TI</div>
+      <p class="plan-pitch">Protección esencial y soporte confiable para empresas que están empezando a ordenar su TI.</p>
+      <div class="plan-divider"></div>
+      <ul class="plan-feats">
+        <li><span class="feat-check">✓</span>Soporte remoto ilimitado (L–V 8am–5pm)</li>
+        <li><span class="feat-check">✓</span>Monitoreo proactivo de infraestructura</li>
+        <li><span class="feat-check">✓</span>Backup automático — datos siempre seguros</li>
+        <li><span class="feat-check">✓</span>Reporte mensual con recomendaciones</li>
+      </ul>
+      <a href="https://wa.me/50252836343" class="plan-btn">Cotizar sin compromiso</a>
+    </div>
+    <div class="plan star">
+      <div class="plan-ribbon">Más elegido</div>
+      <div class="plan-tier">Plan Pro</div>
+      <div class="plan-name">Protección Total</div>
+      <p class="plan-pitch">Para empresas que necesitan seguridad avanzada, presencia física y tiempo de respuesta garantizado.</p>
+      <div class="plan-divider"></div>
+      <ul class="plan-feats">
+        <li><span class="feat-check">✓</span>Todo lo del plan Básico</li>
+        <li><span class="feat-check">✓</span>2 visitas técnicas presenciales al mes</li>
+        <li><span class="feat-check">✓</span>Blindaje total contra ciberataques</li>
+        <li><span class="feat-check">✓</span>Actualizaciones de seguridad gestionadas</li>
+        <li><span class="feat-check">✓</span>Soporte prioritario con SLA garantizado</li>
+      </ul>
+      <a href="https://wa.me/50252836343" class="plan-btn">Solicitar información</a>
+    </div>
+    <div class="plan">
+      <div class="plan-tier">Plan Premium</div>
+      <div class="plan-name">TI Sin Límites</div>
+      <p class="plan-pitch">Para empresas que exigen disponibilidad total y soporte enterprise sin ninguna restricción.</p>
+      <div class="plan-divider"></div>
+      <ul class="plan-feats">
+        <li><span class="feat-check">✓</span>Todo lo del plan Pro</li>
+        <li><span class="feat-check">✓</span>Soporte 24/7 sin límite de horas</li>
+        <li><span class="feat-check">✓</span>Capacitación continua para tu equipo</li>
+        <li><span class="feat-check">✓</span>Infraestructura virtual nivel enterprise</li>
+        <li><span class="feat-check">✓</span>SLA premium con penalidades económicas</li>
+      </ul>
+      <a href="https://wa.me/50252836343" class="plan-btn">Hablar con un asesor</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="proceso">
+  <div class="reveal center">
+    <div class="s-tag" style="justify-content:center"><div class="s-tag-bar"></div>Cómo trabajamos</div>
+    <h2 class="s-title">Sencillo, rápido<br>y sin interrupciones</h2>
+    <p class="s-sub">Un proceso probado en cientos de empresas guatemaltecas. Tu operación nunca se detiene.</p>
+  </div>
+  <div class="process-grid reveal">
+    <div class="proc"><div class="proc-circle">01</div><div class="proc-title">Diagnóstico</div><p class="proc-desc">Evaluamos tu infraestructura y detectamos vulnerabilidades y oportunidades de mejora sin costo.</p></div>
+    <div class="proc"><div class="proc-circle">02</div><div class="proc-title">Propuesta</div><p class="proc-desc">Solución 100% personalizada con presupuesto claro, sin letra pequeña ni costos sorpresa.</p></div>
+    <div class="proc"><div class="proc-circle">03</div><div class="proc-title">Implementación</div><p class="proc-desc">Ejecutamos con mínimo impacto. Tu equipo trabaja con normalidad mientras lo hacemos.</p></div>
+    <div class="proc"><div class="proc-circle">04</div><div class="proc-title">Soporte continuo</div><p class="proc-desc">Monitoreo proactivo, soporte técnico dedicado y mejora continua de toda tu tecnología.</p></div>
+  </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section class="industries">
+  <div class="reveal">
+    <div class="s-tag"><div class="s-tag-bar"></div>Sectores</div>
+    <h2 class="s-title">Experiencia en<br>tu industria</h2>
+    <p class="s-sub">Conocemos los retos tecnológicos específicos de cada sector empresarial en Guatemala.</p>
+  </div>
+  <div class="ind-wrap reveal">
+    <div class="ind-card"><div class="ind-em">🍽️</div><div class="ind-name">Restaurantes</div></div>
+    <div class="ind-card"><div class="ind-em">🏦</div><div class="ind-name">Banca</div></div>
+    <div class="ind-card"><div class="ind-em">🏥</div><div class="ind-name">Salud</div></div>
+    <div class="ind-card"><div class="ind-em">🎓</div><div class="ind-name">Educación</div></div>
+    <div class="ind-card"><div class="ind-em">🛒</div><div class="ind-name">Retail</div></div>
+    <div class="ind-card"><div class="ind-em">⚙️</div><div class="ind-name">Manufactura</div></div>
+    <div class="ind-card"><div class="ind-em">🏗️</div><div class="ind-name">Construcción</div></div>
+    <div class="ind-card"><div class="ind-em">📦</div><div class="ind-name">Logística</div></div>
+  </div>
+</section>
+
+<!-- TECH -->
+<section class="tech">
+  <div class="reveal center">
+    <div class="s-tag" style="justify-content:center"><div class="s-tag-bar"></div>Tecnologías</div>
+    <h2 class="s-title">Las mejores herramientas,<br>en las mejores manos</h2>
+  </div>
+  <div class="tech-row reveal">
+    <div class="tech-chip">HPE</div><div class="tech-chip">Dell</div><div class="tech-chip">VMware</div>
+    <div class="tech-chip">Proxmox</div><div class="tech-chip">Veeam</div><div class="tech-chip">Malwarebytes</div>
+    <div class="tech-chip">ESET</div><div class="tech-chip">Microsoft</div><div class="tech-chip">Cisco</div><div class="tech-chip">Ubiquiti</div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-block">
+  <div class="cta-eyebrow">⚡ Diagnóstico gratuito sin compromiso</div>
+  <h2 class="cta-title">¿Cuánto te cuesta<br>no tener soporte TI?</h2>
+  <p class="cta-sub">Cada hora sin sistema es dinero perdido. No esperes a que ocurra el desastre para tomar acción.</p>
+  <div class="cta-row">
+    <a href="https://wa.me/50252836343" class="btn-wa">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Pedir diagnóstico gratis
+    </a>
+    <a href="tel:+50252836343" class="btn-blue">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+      +502 5283-6343
+    </a>
+  </div>
+  <p class="cta-note">Sin contratos. Sin compromisos. Solo resultados.</p>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="logo"><div class="logo-mark">T</div>TEKNAO</div>
+      <p>Soluciones de soporte tecnológico para PYMES en Guatemala. Resolvemos problemas de red, servidores y ciberseguridad para que tu negocio nunca se detenga.</p>
+    </div>
+    <div class="f-col">
+      <div class="f-col-title">Empresa</div>
+      <ul>
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#planes">Planes</a></li>
+        <li><a href="https://wa.me/50252836343">Contacto</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <div class="f-col-title">Servicios</div>
+      <ul>
+        <li><a href="#">Infraestructura y Redes</a></li>
+        <li><a href="#">Ciberseguridad</a></li>
+        <li><a href="#">Desarrollo de Software</a></li>
+        <li><a href="#">Outsourcing IT</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <div class="f-col-title">Contacto</div>
+      <div class="f-contact">
+        <div class="f-contact-row"><div class="f-icon">📞</div><a href="tel:+50252836343" style="color:var(--muted)">+502 5283-6343</a></div>
+        <div class="f-contact-row"><div class="f-icon">✉️</div><a href="mailto:contacto@teknao.com.gt" style="color:var(--muted)">contacto@teknao.com.gt</a></div>
+        <div class="f-contact-row"><div class="f-icon">📍</div><span>Ciudad de Guatemala</span></div>
+        <div class="f-contact-row"><div class="f-icon">🕐</div><span>L–V 8:00 AM – 6:00 PM</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Teknao. Todos los derechos reservados.</span>
+    <span>Ciudad de Guatemala, Guatemala</span>
+  </div>
+</footer>
+
+<!-- WA Float -->
+<a href="https://wa.me/50252836343" class="wa-float">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+const io = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')});
+},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

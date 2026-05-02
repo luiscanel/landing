@@ -1,0 +1,22 @@
+{
+  "name": "Teknao",
+  "short_name": "Teknao",
+  "description": "Soporte TI para PYMES en Guatemala",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#06090F",
+  "theme_color": "#06090F",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/og-image.png",
+      "sizes": "1200x630",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "productivity", "utilities"],
+  "lang": "es-GT",
+  "scope": "/",
+  "prefer_related_applications": false
+}

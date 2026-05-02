@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Quetzal bird favicon - green body with red chest -->
+  <!-- Body -->
+  <ellipse cx="16" cy="18" rx="8" ry="10" fill="#10B981"/>
+  <!-- Head -->
+  <circle cx="18" cy="10" r="4" fill="#10B981"/>
+  <!-- Red chest -->
+  <ellipse cx="16" cy="22" rx="6" ry="4" fill="#EF4444"/>
+  <!-- Eye -->
+  <circle cx="19" cy="9" r="1" fill="#000"/>
+  <!-- Beak -->
+  <path d="M21 10 L24 11 L21 12 Z" fill="#FBBF24"/>
+  <!-- Crest/feathers -->
+  <path d="M16 6 Q14 2 16 8 M18 6 Q20 1 18 9" stroke="#10B981" stroke-width="2" fill="none"/>
+  <!-- Wing -->
+  <ellipse cx="12" cy="17" rx="4" ry="6" fill="#059669"/>
+  <!-- Tail feathers -->
+  <path d="M10 24 Q6 28 10 30" stroke="#10B981" stroke-width="2" fill="none"/>
+</svg>
