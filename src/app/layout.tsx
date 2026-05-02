@@ -158,7 +158,10 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
       </head>
-      <body style={{ backgroundColor: '#06090F', color: '#F8FAFF', fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif', WebkitFontSmoothing: 'antialiased', MozOsxFontSmoothing: 'grayscale' }}>{children}<Analytics /></body>
+      <body style={{ backgroundColor: '#06090F', color: '#F8FAFF', fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif', WebkitFontSmoothing: 'antialiased', MozOsxFontSmoothing: 'grayscale' }}>
+        {children}
+        <script defer src="/_vercel/analytics" />
+      </body>
     </html>
   );
 }
