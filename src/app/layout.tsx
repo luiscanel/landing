@@ -39,6 +39,9 @@ export const metadata: Metadata = {
       follow: true,
     },
   },
+  alternates: {
+    canonical: "https://teknao.gt",
+  },
   icons: {
     icon: "/favicon.svg",
     apple: "/favicon.svg",
@@ -50,13 +53,21 @@ export const metadata: Metadata = {
     url: "https://teknao.gt",
     siteName: "Teknao",
     title: "Teknao — Soporte TI para PYMES en Guatemala",
-    description:
-      "Soporte TI profesional con respuesta garantizada en menos de 2 horas. Servidores, redes y ciberseguridad 24/7.",
+    description: "Soporte TI profesional con respuesta garantizada en menos de 2 horas. Servidores, redes y ciberseguridad 24/7.",
+    images: [
+      {
+        url: "https://teknao.gt/og-image.svg",
+        width: 1200,
+        height: 630,
+        alt: "Teknao - Soporte TI para PYMES en Guatemala",
+      },
+    ],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "Teknao — Soporte TI para PYMES",
     description: "Tu negocio no puede pararse. Soporte TI profesional en Guatemala.",
+    images: ["https://teknao.gt/og-image.svg"],
   },
   category: "technology",
   classification: "Business Services",
@@ -68,7 +79,8 @@ const jsonLd = {
   name: "Teknao",
   description: "Soporte TI profesional para PYMES en Guatemala. Servidores, redes y ciberseguridad 24/7.",
   url: "https://teknao.gt",
-  logo: "https://teknao.gt/favicon.svg",
+  logo: "https://teknao.gt/og-image.svg",
+  image: "https://teknao.gt/og-image.svg",
   telephone: "+50252836343",
   email: "contacto@teknao.com.gt",
   address: {
@@ -110,7 +122,8 @@ const organizationJsonLd = {
   "@type": "Organization",
   name: "Teknao",
   url: "https://teknao.gt",
-  logo: "https://teknao.gt/favicon.svg",
+  logo: "https://teknao.gt/og-image.svg",
+  image: "https://teknao.gt/og-image.svg",
   description: "Empresa de soporte tecnológico para PYMES en Guatemala con más de 10 años de experiencia.",
   foundingLocation: "Guatemala",
   numberOfEmployees: {

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#06090F"/>
+  <rect x="0" y="0" width="1200" height="315" fill="url(#gradient)"/>
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2563EB;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#0EA5E9;stop-opacity:0.6" />
+    </linearGradient>
+  </defs>
+  <text x="600" y="280" font-family="Arial, sans-serif" font-size="72" font-weight="900" fill="white" text-anchor="middle">TEKNAO</text>
+  <text x="600" y="340" font-family="Arial, sans-serif" font-size="28" fill="#60A5FA" text-anchor="middle">Soporte TI para PYMES en Guatemala</text>
+  <text x="600" y="380" font-family="Arial, sans-serif" font-size="20" fill="#8BA3C7" text-anchor="middle">Respuesta en menos de 2 horas · 24/7 · ciberseguridad</text>
+  <rect x="500" y="420" width="200" height="50" rx="10" fill="#1FAD52"/>
+  <text x="600" y="455" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white" text-anchor="middle">Contáctanos</text>
+  <text x="600" y="580" font-family="Arial, sans-serif" font-size="16" fill="#4A6585" text-anchor="middle">teknao.gt · +502 5283-6343</text>
+</svg>
