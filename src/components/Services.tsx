@@ -102,10 +102,17 @@ export default function Services() {
       <style>{`
         @media (max-width: 768px) {
           .services-section {
-            padding: 80px 5% !important;
+            padding: 60px 5% !important;
           }
           .services-grid {
             grid-template-columns: 1fr !important;
+          }
+          .services-card {
+            padding: 28px 20px !important;
+          }
+          .services-icon {
+            width: 44px !important;
+            height: 44px !important;
           }
         }
       `}</style>

@@ -62,7 +62,7 @@ export default function Hero() {
 
       {/* RIGHT - Monitor Card */}
       <div style={{ position: 'relative', zIndex: 1 }}>
-        <div style={{ backgroundColor: '#111B2E', border: '1px solid rgba(255,255,255,0.06)', borderRadius: '20px', padding: '32px', position: 'relative', overflow: 'hidden' }}>
+        <div style={{ backgroundColor: '#111B2E', border: '1px solid rgba(255,255,255,0.06)', borderRadius: '20px', padding: '32px', position: 'relative', overflow: 'hidden' }} className="hero-monitor">
           <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '3px', background: 'linear-gradient(90deg, #2563EB, #0EA5E9, #60A5FA)' }} />
           <div style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '2px', textTransform: 'uppercase', color: '#60A5FA', marginBottom: '16px' }}>Monitor de infraestructura</div>
           
@@ -93,10 +93,17 @@ export default function Hero() {
           .hero-section > div:nth-child(3) {
             order: -1;
           }
+          .hero-monitor {
+            padding: 20px !important;
+            border-radius: 14px !important;
+          }
         }
         @media (max-width: 600px) {
           .hero-section {
-            padding: 90px 5% 50px !important;
+            padding: 80px 5% 40px !important;
+          }
+          .hero-monitor {
+            padding: 14px !important;
           }
         }
       `}</style>
