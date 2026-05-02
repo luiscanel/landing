@@ -15,7 +15,7 @@ const industries = [
 
 export default function Industries() {
   return (
-    <section id="industrias" style={{ padding: '110px 6%', backgroundColor: '#0D1422' }}>
+    <section id="industrias" style={{ padding: '110px 6%', backgroundColor: '#0D1422' }} className="industries-section">
       <div style={{ marginBottom: '40px' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '14px' }}>
           <div style={{ width: '20px', height: '2px', backgroundColor: '#60A5FA', borderRadius: '2px' }} />
@@ -50,6 +50,13 @@ export default function Industries() {
           </div>
         ))}
       </div>
+      <style>{`
+        @media (max-width: 768px) {
+          .industries-section {
+            padding: 80px 5% !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import MobileMenu from "./MobileMenu";
 
 const navLinks = [
   { href: "/", label: "Inicio" },
@@ -67,10 +68,6 @@ export default function Navbar() {
     transition: 'color 0.2s',
   };
 
-  const linkHoverStyle: React.CSSProperties = {
-    color: '#F8FAFF',
-  };
-
   const waButtonStyle: React.CSSProperties = {
     backgroundColor: '#2563EB',
     color: 'white',
@@ -89,7 +86,8 @@ export default function Navbar() {
       <Link href="/" style={logoStyle} aria-label="Teknao - Ir al inicio">
         <span style={logoTekStyle}>TEK</span><span style={logoNaoStyle}>NAO</span>
       </Link>
-      <div style={linkContainerStyle} role="menubar">
+      <MobileMenu />
+      <div style={linkContainerStyle} role="menubar" className="nav-links">
         {navLinks.map((link) => (
           <Link
             key={link.href}
@@ -110,6 +108,13 @@ export default function Navbar() {
           Contáctanos
         </Link>
       </div>
+      <style>{`
+        @media (max-width: 768px) {
+          .nav-links {
+            display: none !important;
+          }
+        }
+      `}</style>
     </nav>
   );
 }

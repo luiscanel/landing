@@ -20,9 +20,9 @@ const footerLinks = {
 
 export default function Footer() {
   return (
-    <footer style={{ backgroundColor: '#0D1422', borderTop: '1px solid rgba(255,255,255,0.06)', padding: '72px 6% 36px' }}>
+    <footer style={{ backgroundColor: '#0D1422', borderTop: '1px solid rgba(255,255,255,0.06)', padding: '72px 6% 36px' }} className="footer-main">
       {/* Main Grid - 4 columns like original */}
-      <div style={{ display: 'grid', gridTemplateColumns: '2.2fr 1fr 1fr 1.6fr', gap: '48px', paddingBottom: '56px', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: '2.2fr 1fr 1fr 1.6fr', gap: '48px', paddingBottom: '56px', borderBottom: '1px solid rgba(255,255,255,0.06)' }} className="footer-grid">
         {/* Brand - Column 1 */}
         <div>
           <Link href="/" style={{ fontSize: '20px', fontWeight: 900, letterSpacing: '-0.5px', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -99,6 +99,23 @@ export default function Footer() {
         <span>© 2026 Teknao. Todos los derechos reservados.</span>
         <span>Ciudad de Guatemala, Guatemala</span>
       </div>
+      <style>{`
+        @media (max-width: 900px) {
+          .footer-main {
+            padding: 56px 5% 28px !important;
+          }
+          .footer-grid {
+            grid-template-columns: 1fr 1fr !important;
+            gap: 36px !important;
+          }
+        }
+        @media (max-width: 600px) {
+          .footer-grid {
+            grid-template-columns: 1fr !important;
+            gap: 32px !important;
+          }
+        }
+      `}</style>
     </footer>
   );
 }

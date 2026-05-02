@@ -35,7 +35,7 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="servicios" style={{ padding: '110px 6%', backgroundColor: '#0D1422', position: 'relative', overflow: 'hidden' }}>
+    <section id="servicios" style={{ padding: '110px 6%', backgroundColor: '#0D1422', position: 'relative', overflow: 'hidden' }} className="services-section">
       <div style={{ position: 'absolute', top: 0, right: 0, width: '500px', height: '500px', borderRadius: '50%', background: 'rgba(37,99,235,0.03)', filter: 'blur(150px)', pointerEvents: 'none' }} />
       
       <div style={{ position: 'relative', zIndex: 10 }}>
@@ -53,7 +53,7 @@ export default function Services() {
         </p>
       </div>
 
-      <div style={{ position: 'relative', zIndex: 10, marginTop: '64px', display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1px', backgroundColor: 'rgba(59,130,246,0.12)', borderRadius: '18px', overflow: 'hidden' }}>
+      <div style={{ position: 'relative', zIndex: 10, marginTop: '64px', display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1px', backgroundColor: 'rgba(59,130,246,0.12)', borderRadius: '18px', overflow: 'hidden' }} className="services-grid">
         {services.map((srv, i) => (
           <div
             key={i}
@@ -99,6 +99,16 @@ export default function Services() {
           </div>
         ))}
       </div>
+      <style>{`
+        @media (max-width: 768px) {
+          .services-section {
+            padding: 80px 5% !important;
+          }
+          .services-grid {
+            grid-template-columns: 1fr !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

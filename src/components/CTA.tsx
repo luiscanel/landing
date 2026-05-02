@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function CTA() {
   return (
-    <div id="contacto" style={{ background: 'linear-gradient(to bottom, #111B2E, #162038)', borderTop: '1px solid rgba(255,255,255,0.06)', borderBottom: '1px solid rgba(255,255,255,0.06)', padding: '100px 6%', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
+    <div id="contacto" style={{ background: 'linear-gradient(to bottom, #111B2E, #162038)', borderTop: '1px solid rgba(255,255,255,0.06)', borderBottom: '1px solid rgba(255,255,255,0.06)', padding: '100px 6%', textAlign: 'center', position: 'relative', overflow: 'hidden' }} className="cta-section">
       <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 50% 60% at 50% 100%, rgba(37,99,235,0.12) 0%, transparent 70%)' }} />
       
       <div style={{ position: 'relative', zIndex: 10 }}>
@@ -50,6 +50,13 @@ export default function CTA() {
           Sin contratos. Sin compromisos. Solo resultados.
         </p>
       </div>
+      <style>{`
+        @media (max-width: 600px) {
+          .cta-section {
+            padding: 80px 5% !important;
+          }
+        }
+      `}</style>
     </div>
   );
 }

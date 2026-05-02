@@ -65,7 +65,7 @@ export default function Plans() {
         </p>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '20px', marginTop: '64px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '20px', marginTop: '64px' }} className="plans-grid">
         {plans.map((plan, i) => (
           <div
             key={i}
@@ -145,6 +145,14 @@ export default function Plans() {
           </div>
         ))}
       </div>
+      <style>{`
+        @media (max-width: 768px) {
+          .plans-grid {
+            grid-template-columns: 1fr !important;
+            margin-top: 48px !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

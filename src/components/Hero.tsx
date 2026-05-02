@@ -16,7 +16,7 @@ const alerts = [
 
 export default function Hero() {
   return (
-    <section style={{ minHeight: '100vh', padding: '100px 6% 80px', display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '60px', alignItems: 'center', position: 'relative', overflow: 'hidden', backgroundColor: '#06090F' }}>
+    <section style={{ minHeight: '100vh', padding: '100px 6% 80px', display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '60px', alignItems: 'center', position: 'relative', overflow: 'hidden', backgroundColor: '#06090F' }} className="hero-section">
       {/* Backgrounds */}
       <div style={{ position: 'absolute', inset: 0, zIndex: 0, background: 'radial-gradient(ellipse 60% 80% at 75% 50%, rgba(37,99,235,0.12) 0%, transparent 70%), radial-gradient(ellipse 40% 40% at 20% 80%, rgba(14,165,233,0.06) 0%, transparent 60%)' }} />
       <div style={{ position: 'absolute', inset: 0, zIndex: 0, backgroundImage: 'linear-gradient(rgba(59,130,246,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.05) 1px, transparent 1px)', backgroundSize: '80px 80px', maskImage: 'radial-gradient(ellipse 70% 70% at 70% 50%, black 30%, transparent 100%)' }} />
@@ -82,6 +82,24 @@ export default function Hero() {
           </div>
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 900px) {
+          .hero-section {
+            grid-template-columns: 1fr !important;
+            padding: 100px 6% 60px !important;
+            gap: 40px !important;
+          }
+          .hero-section > div:nth-child(3) {
+            order: -1;
+          }
+        }
+        @media (max-width: 600px) {
+          .hero-section {
+            padding: 90px 5% 50px !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }
