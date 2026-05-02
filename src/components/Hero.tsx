@@ -28,12 +28,12 @@ export default function Hero() {
           <span style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '2.5px', textTransform: 'uppercase', color: '#60A5FA' }}>Soporte TI para PYMES · Guatemala</span>
         </div>
 
-        <h1 style={{ fontSize: 'clamp(44px, 5.5vw, 78px)', fontWeight: 900, lineHeight: 0.97, letterSpacing: '-2.5px', marginBottom: '28px', color: '#F8FAFF' }}>
+        <h1 style={{ fontSize: 'clamp(44px, 5.5vw, 78px)', fontWeight: 900, lineHeight: 0.97, letterSpacing: '-2.5px', marginBottom: '28px', color: '#F8FAFF' }} className="hero-title">
           Tu negocio<br />no puede<br />
           <span style={{ background: 'linear-gradient(100deg, #3B82F6 0%, #BAE6FD 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>pararse.</span>
         </h1>
 
-        <p style={{ fontSize: '17px', color: '#8BA3C7', maxWidth: '460px', lineHeight: 1.7, marginBottom: '40px' }}>
+        <p style={{ fontSize: '17px', color: '#8BA3C7', maxWidth: '460px', lineHeight: 1.7, marginBottom: '40px' }} className="hero-text">
           Soporte TI profesional con respuesta garantizada en menos de 2 horas. Servidores, redes y ciberseguridad que funcionan 24/7 para que tú te concentres en crecer.
         </p>
 
@@ -50,9 +50,9 @@ export default function Hero() {
         </div>
 
         {/* KPIs */}
-        <div style={{ display: 'flex', border: '1px solid rgba(255,255,255,0.06)', borderRadius: '14px', overflow: 'hidden', backgroundColor: '#111B2E' }}>
+        <div style={{ display: 'flex', border: '1px solid rgba(255,255,255,0.06)', borderRadius: '14px', overflow: 'hidden', backgroundColor: '#111B2E' }} className="hero-kpis">
           {kpis.map((kpi, i) => (
-            <div key={i} style={{ padding: '18px 22px', flex: 1, borderRight: i < 3 ? '1px solid rgba(255,255,255,0.06)' : 'none' }}>
+            <div key={i} style={{ padding: '18px 22px', flex: 1, borderRight: i < 3 ? '1px solid rgba(255,255,255,0.06)' : 'none' }} className="hero-kpi">
               <div style={{ fontSize: '26px', fontWeight: 900, color: '#60A5FA', lineHeight: 1, marginBottom: '4px' }}>{kpi.value}</div>
               <div style={{ fontSize: '11px', color: '#4A6585', fontWeight: 500 }}>{kpi.label}</div>
             </div>
@@ -87,15 +87,29 @@ export default function Hero() {
         @media (max-width: 900px) {
           .hero-section {
             grid-template-columns: 1fr !important;
-            padding: 100px 6% 60px !important;
-            gap: 40px !important;
-          }
-          .hero-section > div:nth-child(3) {
-            order: -1;
+            padding: 90px 5% 50px !important;
+            gap: 30px !important;
           }
           .hero-monitor {
-            padding: 20px !important;
+            padding: 16px !important;
             border-radius: 14px !important;
+          }
+          .hero-title {
+            font-size: 38px !important;
+            line-height: 1.1 !important;
+          }
+          .hero-text {
+            font-size: 15px !important;
+            margin-bottom: 28px !important;
+          }
+          .hero-kpis {
+            flex-direction: column !important;
+            gap: 0 !important;
+          }
+          .hero-kpi {
+            padding: 14px !important;
+            border-right: none !important;
+            border-bottom: 1px solid rgba(255,255,255,0.06) !important;
           }
         }
         @media (max-width: 600px) {
@@ -103,7 +117,10 @@ export default function Hero() {
             padding: 80px 5% 40px !important;
           }
           .hero-monitor {
-            padding: 14px !important;
+            padding: 12px !important;
+          }
+          .hero-title {
+            font-size: 32px !important;
           }
         }
       `}</style>
