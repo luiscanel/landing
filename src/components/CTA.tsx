@@ -13,7 +13,7 @@ export default function CTA() {
         </div>
         
         <h2 style={{ fontSize: 'clamp(30px, 4.5vw, 58px)', fontWeight: 800, letterSpacing: '-2px', lineHeight: 1.05, marginBottom: '16px', color: '#F8FAFF' }}>
-          ¿Cuánto te custa<br />no tener soporte TI?
+          ¿Cuánto te cuesta<br />no tener soporte TI?
         </h2>
         
         <p style={{ fontSize: '17px', color: '#8BA3C7', maxWidth: '480px', margin: '0 auto 40px', lineHeight: 1.7 }}>

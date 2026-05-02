@@ -7,7 +7,7 @@ const plans = [
     tier: "Plan Básico",
     name: "Tranquilidad TI",
     pitch:
-      "Protección esencial y soporte confiable para empresas que están empezóando a ordenar su TI.",
+      "Protección esencial y soporte confiable para empresas que están empezando a ordenar su TI.",
     features: [
       "Soporte remoto ilimitado (L–V 8am–5pm)",
       "Monitoreo proactivo de infraestructura",

@@ -5,18 +5,18 @@ import { IconShield, IconClock, IconServer, IconZap } from "./Icon";
 const guarantees = [
   {
     icon: <IconShield size={20} />,
-    title: "Proteccion Integral",
-    desc: "Ransomware, virus, phishing y perdida de datos. Backup automatico con recuperacion garantizada.",
+    title: "Protección Integral",
+    desc: "Ransomware, virus, phishing y pérdida de datos. Backup automático con recuperación garantizada.",
   },
   {
     icon: <IconServer size={20} />,
     title: "Backup Verificado",
-    desc: "Testeamos backups diariamente. Si no podemos restaurar, tu no pagas ese mes.",
+    desc: "Probamos copias de seguridad diariamente. Si no podemos restaurar, tú no pagas ese mes.",
   },
   {
     icon: <IconClock size={20} />,
     title: "Respuesta en 2 Horas",
-    desc: "Tiempo de respuesta critico en menos de 2 horas durante horario laboral.",
+    desc: "Tiempo de respuesta crítico en menos de 2 horas durante horario laboral.",
   },
   {
     icon: <IconZap size={20} />,
@@ -42,7 +42,7 @@ export default function Guarantees() {
             Protegemos tu Negocio<br />Contra Amenazas Reales
           </h2>
           <p style={{ fontSize: '17px', color: '#8BA3C7', marginTop: '14px', maxWidth: '520px', lineHeight: 1.7 }}>
-            Ransomware, virus, phishing y perdida de datos. Tu informacion segura con monitoreo 24/7 y recuperacion garantizada.
+            Ransomware, virus, phishing y pérdida de datos. Tu información segura con monitoreo 24/7 y recuperación garantizada.
           </p>
           <div style={{ marginTop: '36px' }}>
             <a
